@@ -1,0 +1,377 @@
+/**index.wxss**/
+.index-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container{
+  background-color: white;  
+  height: 70rpx;  
+}
+
+.button-container{ 
+  float:left;
+  margin-left: 250rpx;
+  display: flex;
+  flex-direction: row;
+  width: 300rpx;
+  height: 60rpx;
+  border: solid 1rpx RGB(219,219,217); 
+  border-radius:5px;   
+  font-size: 25rpx;  
+  text-align: center; 
+}
+
+.search-container{
+  color: black;
+  float: right;
+  margin-top: 10rpx; 
+  margin-right: 30rpx;
+}
+.nav-button{  
+  height: 100%;
+  width: 50%;    
+  color:RGB(128,129,127);  
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.nav-button.active{
+  background-color: RGB(255,73,76); 
+  color: white;
+}
+
+.content-container{
+  width: 100%;
+  background-color:RGB(246,243,247); 
+  display: flex;
+  flex-direction: column;
+}
+
+.block-container{
+  background-color: white;  
+  width: 100%;
+  height: 230rpx;  
+}
+
+.block-container.main{
+  margin-top: 20rpx;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx; 
+  width: 220rpx;
+  height: 180rpx;
+  border: solid 1rpx RGB(219,219,217); 
+}
+
+.main-block .stock-title{
+  color: black;
+  font-size: 35rpx; 
+  text-align: center;
+}
+.main-block .stock-value{
+  color: black;
+  font-size: 45rpx; 
+  font-weight: bold;
+  text-align: center;
+}
+.main-block .stock-value.increase{
+  color: RGB(246,82,79);  
+}
+.main-block .stock-value.fall{
+  color: RGB(35,177,70);  
+}
+.main-block .stock-increase-container{
+  width: 200rpx;
+  font-size: 25rpx; 
+  color: black;
+}
+
+.main-block .stock-increase-container .stock-increase-value{
+  margin-left: 20rpx;
+  float:left; 
+}
+
+.main-block .stock-increase-container .stock-increase-percent{
+  float:right; 
+}
+
+
+.block-title-container{  
+  width: 100%;
+  height: 65rpx;
+  line-height: 65rpx;
+  font-size: 30rpx;
+  color: RGB(102.105,102);
+  background-color:RGB(246,243,247);  
+}
+.block-title-container .block-title-name{
+  margin-left: 30rpx;
+  float: left;
+}
+.block-title-container .block-title-more{
+  float: right;
+  margin-right: 30rpx;
+}
+
+.common-block-container{
+  display: flex;
+  flex-direction: row;  
+  width: 100%;
+}
+.common-block{
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  margin-left: 20rpx; 
+  width: 220rpx;
+  height: 180rpx; 
+}
+
+.common-block .block-title{  
+  color: black;
+  font-size: 35rpx; 
+  text-align: center;
+}
+
+.common-block .block-value{
+  margin-top: -20rpx;
+  color: black;
+  font-size: 35rpx; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.block-value.increase{
+  color: RGB(246,82,79);
+}
+.block-value.fall{
+  color: RGB(35,177,70); 
+}
+.common-block .top-stock-container{
+  margin-top: -25rpx;
+  width: 200rpx;
+  font-size: 25rpx;
+  color: RGB(195, 195, 195);
+}
+
+.top-stock-container .stock-title{
+  float: left;
+
+}
+
+.top-stock-container .stock-value{
+  float: right;
+  color: black;
+}
+
+.stock-value.increase{
+  color: RGB(246,82,79);
+}
+.stock-value.fall{
+  color: RGB(35,177,70); 
+}
+
+.fall{
+  color: RGB(35,177,70);  
+}
+
+.increase{
+  color: RGB(246,82,79);
+}
+.hot-container{  
+  background-color: white;
+  margin-top: 20rpx;  
+  width: 100%;
+  height: 400rpx;
+}
+
+.hot-container .tab-container{
+  height: 60rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1rpx RGB(240, 240, 240);
+}
+
+.tab-container .hot-tab-button{  
+  color: RGB(109, 106, 109);
+  width: 22%;
+  font-size: 30rpx;
+}
+
+.hot-tab-button.active{
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+}
+
+.hot-tab-button .border-bottom {
+  background: white;
+  padding: 4rpx;
+  padding-bottom: 0rpx;
+  width: 50rpx;  
+}
+
+.border-bottom.active{
+  background: RGB(224, 87, 98);
+}
+
+.hot-stock-container{
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  align-items: center;
+  height: 90rpx;
+  width: 100%;
+  border-bottom: solid 1rpx RGB(240, 240, 240);
+}
+
+.hot-stock-container .stock-container{
+  height: 100%;  
+  width: 40%;
+  display: flex;
+  flex-direction: column;  
+  text-align: left;
+}
+
+.stock-container .stock-name{
+  margin-top: 10rpx;
+  font-size: 35rpx;  
+  color:black;
+}
+
+.stock-container .stock-code{
+  font-size: 25rpx;  
+  color: RGB(196, 196, 196);
+}
+
+.hot-stock-container .stock-increase-container{
+  width: 18%;
+  text-align: right;
+}
+
+.hot-stock-container .stock-increase-percent-container{
+  width: 25%;
+  text-align: right;
+}
+
+.select-content-container{
+  width: 100%;
+  background-color:RGB(246,243,247); 
+  display: flex;
+  flex-direction: column;
+}
+
+.select-content-container .tab-title-container{
+  background-color: white;
+  margin-top: 30rpx;
+  height: 80rpx;
+  width: 100%; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #EEEEEE; 
+}
+
+.tab-title-container .title-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25%;
+  font-size: 30rpx;  
+  color: RGB(132, 132,132);
+}
+
+.title-button .active{
+  color:RGB(254,74,78); 
+}
+
+.title-button .up{
+  /*margin-left: -5rpx;*/
+}
+.title-button .down{
+  /*margin-left: -10rpx;*/
+}
+
+
+.select-content-container .select-stock-container{
+  width: 100%;
+  height: 90rpx;  
+  background-color: white;   
+  border-bottom: 1rpx solid #EEEEEE; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-stock-container.up{
+  background: linear-gradient(to right, white , RGB(255,221,222));
+}
+.select-stock-container.down{
+  background: linear-gradient(to right, white , RGB(213,244,210));
+}
+
+.select-stock-container .stock-name-container{
+  width: 25%;  
+  display: flex;
+  flex-direction: column;  
+  text-align: center;
+}
+.stock-name-container .stock-name{  
+  font-size: 35rpx;  
+  color:black;
+}
+
+.stock-name-container .stock-code{
+  font-size: 25rpx;  
+  color: RGB(196, 196, 196);
+}
+
+.select-stock-container .select-stock-price{
+  width: 25%;
+  font-size: 40rpx;  
+  text-align: center;
+}
+
+.select-stock-price.up{
+  color: RGB(237, 85, 83);
+}
+
+.select-stock-price.down{
+  color: RGB(80, 158, 95);
+}
+
+.load-more-container{
+  width: 100%;
+  height: 100rpx;  
+  background-color: white;   
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.load-more-container .load-more-button{
+  width: 100%;  
+  text-align: center;
+}
+
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}

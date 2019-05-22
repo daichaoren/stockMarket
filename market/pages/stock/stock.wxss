@@ -1,0 +1,524 @@
+/* pages/stock/stock.wxss */
+.stock-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container{
+  background-color: white;  
+  height: 90rpx;  
+  width: 100%;
+  border-bottom: solid 1rpx RGB(219,219,217); 
+}
+
+.stock-title-container{
+  float: left;
+  margin-left: 200rpx; 
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 15rpx solid transparent;
+  border-right: 30rpx solid RGB(178, 171, 181);
+  border-bottom: 15rpx solid transparent;
+}
+
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 15rpx solid transparent;
+    border-left: 30rpx solid RGB(178, 171, 181);
+    border-bottom: 15rpx solid transparent;
+}
+
+.stock-title-container .stock-title{
+  height: 100%;
+  width: 300rpx;
+  text-align: center;
+}
+
+.stock-title .stock-name{
+  font-size: 40rpx;  
+  text-align: center;
+}
+
+.stock-title .stock-code{
+  font-size: 25rpx;
+  
+}
+
+.search-container{
+  color: black;
+  float: right;
+  margin-top: 20rpx; 
+  margin-right: 30rpx;
+}
+
+.stock-price-top-container{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-price-top-container .price-container{
+  margin-left: 80rpx; 
+  width: 60%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  color :black; 
+}
+
+.price-container.up{
+  color: RGB(216, 86, 94);
+}
+
+.price-container.down{
+   color: RGB(98,196,119)
+}
+
+.price-container .current-price{
+   font-size: 90rpx;
+   font-weight: bold;
+}
+
+.price-container .current-price-increase-container{
+  font-size: 30rpx;
+}
+
+.current-price-increase-container .increase{
+  
+}
+.current-price-increase-container .price{
+
+}
+
+.select-button-container{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-button-line{
+  height: 70rpx;
+  width: 4rpx;
+  background-color: #EEEEEE; 
+}
+.select-del-button{
+  margin-left: 20rpx;
+  color: #9b989b;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: solid 2rpx  #979498; 
+  border-radius:20px;   
+  font-size: 30rpx;     
+  text-align: center;
+}
+
+.select-add-button{
+  margin-left: 20rpx;
+  color: RGB(216, 86, 94);
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: solid 2rpx  RGB(216, 86, 94); 
+  border-radius:20px;   
+  font-size: 30rpx;     
+  text-align: center;
+}
+
+.stock-price-detail-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 120rpx;
+  background-color: RGB(250, 247, 248); 
+}
+
+.stock-price-detail-container .detail-block-container{
+  width: 24%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-block-container .detail-block-row{
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-block-container .detail-block-row .title{
+  font-size: 25rpx;
+  text-align: center;
+  color: RGB(141, 139, 137);
+}
+.detail-block-container .detail-block-row .value{
+  color: black;
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+
+.detail-block-container .detail-block-row .value.up{
+  color: RGB(255, 73, 80);
+}
+
+.detail-block-container .detail-block-row .value.down{
+  color: RGB(55, 175, 81);
+}
+
+.triangle-bottomright {  
+  margin-top: 80rpx;
+  width: 0;
+  height: 0;
+  border-bottom: 30rpx solid RGB(209, 193, 194);
+  border-left: 30rpx solid transparent;
+}
+
+.modal-detail-block-container{
+  margin-top: 200rpx;  
+  margin-left: 45rpx;
+  height: 600rpx;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white; 
+  font-size: 30rpx;
+}
+
+.modal-detail-block-container .row{  
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 46rpx;
+}
+
+.modal-detail-block-container .row .half-row{
+  width: 50%;  
+}
+
+.modal-detail-block-container .row .half-row .title{  
+  margin-left: 40rpx;
+  float: left; 
+}
+
+.modal-detail-block-container .row .half-row .value{  
+  float: right;
+  margin-right: 40rpx;
+  color: black;
+}
+
+.modal-detail-block-container .row .half-row .value.up{  
+  color: RGB(255, 73, 80);
+}
+
+.modal-detail-block-container .row .half-row .value.down{  
+  color: RGB(55, 175, 81);
+}
+
+.modal-close-button-container{
+  height: 70rpx;
+  width: 100%;
+}
+
+.modal-close-button-container .close-button{
+  margin-top: 20rpx;
+  color: RGB(120, 112, 121);
+  font-size: 50rpx;
+  text-align: center;
+}
+
+.stock-tab-container{
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-bottom: solid 1rpx RGB(219,219,217);
+  justify-content: center; 
+}
+
+.stock-tab-container .tab-button-container{
+  width: 16%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-tab-container .tab-button-container .name{
+  text-align: center;
+  font-size: 25rpx;
+  margin-top: 15rpx;
+  color: RGB(103, 101, 104);
+}
+
+.stock-tab-container .tab-button-container .name.active{
+  color: RGB(255, 73, 80);
+}
+
+.stock-tab-container .tab-button-container .triangle-down {
+    width: 0;
+    height: 0;
+    margin-left: 50rpx;    
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid white;
+}
+
+.stock-tab-container .tab-button-container .triangle-down.active {    
+    border-top: 10px solid RGB(255, 73, 80);
+}
+
+.stock-tab-container .tab-button-container .tab-triangle-bottom {    
+  width: 0;
+  height: 0;
+  margin-left: 80rpx;
+  border-bottom: 20rpx solid RGB(209, 193, 194);
+  border-left: 20rpx solid transparent;
+}
+
+.stock-time-share-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-time-share-container .real-price-container{
+  width: 100%;
+  height: 35rpx;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stock-time-share-container .real-price-container .time{
+  margin-left: 40rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  color: black;
+}
+
+.stock-time-share-container .real-price-container .value{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: black;
+}
+
+.stock-time-share-container .real-price-container .value.up{  
+  color: RGB(255, 73, 80);
+}
+
+.stock-time-share-container .real-price-container .value.down{ 
+  color: RGB(55, 175, 81);
+}
+
+.stock-time-share-container .time-share-chart-container{
+  width: 100%;
+  height: 500rpx;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.stock-time-share-container .time-share-chart-container .time-share-top-chart{
+  width: 95%;
+  height: 60%;
+  border: solid 1rpx RGB(219,219,217);
+}
+
+.stock-time-share-container .time-share-chart-container .time-share-bottom-chart{
+  width: 95%;
+  height: 40%;
+  border: solid 1rpx RGB(219,219,217);
+}
+
+.stock-time-share-container .sell-buy-detail-container{
+  width: 100%;
+  background-color: white;  
+}
+
+.stock-time-share-container .sell-buy-detail-container .column{
+  margin-top: 20rpx;
+  float: left;
+  width: 16%;
+  display: flex;
+  flex-direction: column; 
+}
+
+.stock-time-share-container .sell-buy-detail-container .column .value{
+  margin-top: 10rpx; 
+  font-size: 27rpx;
+  text-align: center;
+}
+
+.stock-time-share-container .sell-buy-detail-container .column .value.up{
+  color: RGB(255, 73, 80);
+}
+.stock-time-share-container .sell-buy-detail-container .column .value.down{
+  color: RGB(55, 175, 81);
+}
+
+.mask_container{
+  position: fixed;
+  top:100rpx;
+  left: 0;
+  width: 100%;  
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  z-index:1000;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.stock-k-line-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-k-line-container .ma-price-container{
+  width: 100%;
+  height: 35rpx;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stock-k-line-container .ma-price-container .time{
+  margin-left: 40rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  color: black;
+}
+
+.stock-k-line-container .ma-price-container .value{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: black;
+}
+
+.stock-k-line-container .ma-price-container .value2{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: RGB(229, 149, 52);
+}
+
+.stock-k-line-container .ma-price-container .value3{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: RGB(219, 114, 213);
+}
+
+.stock-k-line-container .ma-price-container .value4{
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: RGB(42, 141, 226);
+}
+
+.stock-k-line-container .k-line-chart-container{
+  width: 95%;
+  height: 500rpx;    
+  background-color: white;
+  border: solid 1rpx RGB(219,219,217);
+}
+
+.stock-k-line-container .stock-k-line-news-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-k-line-container .stock-k-line-news-container .nav-container{
+  background-color: white;  
+  height: 70rpx; 
+}
+
+.stock-k-line-container .stock-k-line-news-container .nav-container{
+  margin-top: 20rpx; 
+  background-color: white;  
+  height: 70rpx; 
+}
+.stock-k-line-container .stock-k-line-news-container .nav-container .button-container{ 
+  display: flex;
+  flex-direction: row;
+  width: 300rpx;
+  height: 60rpx;
+  border: solid 1rpx RGB(219,219,217); 
+  border-radius:5px;   
+  font-size: 25rpx;  
+  text-align: center; 
+}
+
+.stock-k-line-container .stock-k-line-news-container .nav-container .button-container .nav-button{  
+  height: 100%;
+  width: 50%;    
+  color:RGB(128,129,127);  
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.stock-k-line-container .stock-k-line-news-container .nav-container .button-container .nav-button.active{
+  background-color: RGB(255,73,76); 
+  color: white;
+}
+
+.stock-k-line-container .news-container{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-k-line-container .public-container{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;  
+}
+
+.stock-k-line-container .public-container .public-row{
+  margin-top: 10rpx;
+  border-top: solid 1rpx RGB(219,219,217); 
+  width: 100%;
+}
+
+.stock-k-line-container .public-container .public-row .public-title{
+  margin-top: 10rpx;
+ 
+  text-align: left;
+  font-size: 35rpx;
+  color: RGB(104, 101, 104);
+}
+
+.stock-k-line-container .public-container .public-row .public-date{
+  text-align: left;
+  font-size: 25rpx;
+  color: RGB(196, 193, 196);
+}
+
+
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}

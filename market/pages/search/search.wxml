@@ -1,0 +1,13 @@
+<view class='search-container'>
+  <view class="search-input-container">
+    <input bindinput='watchSeach' type='text' placeholder="请输入股票代码或拼音" auto-focus/>
+  </view>
+  <view class='search-result-container'>
+    <view class='row' wx:for="{{searchResult}}" wx:key="searchId"
+    data-stock-name="{{item.name}}" data-stock-code="{{item.code}}" data-stock-sina-code="{{item.sinaCode}}" bindtap='gotoStockDetail'>
+      <view class='result-name'>{{item.name}}</view>
+      <view class='result-code'>{{item.code}}</view>
+      <view class='result-goto'>></view>
+    </view>
+  </view>
+</view>

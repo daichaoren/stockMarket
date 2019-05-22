@@ -1,0 +1,43 @@
+/* pages/search/search.wxss */
+
+.search-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search-input-container{
+  text-align: left;
+  width: 90%;
+  font-size: 35rpx;
+  color: RGB(75, 75, 75);
+}
+
+.search-result-container{
+  width: 90%;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: RGB(75, 75, 75);
+}
+
+.search-result-container .row{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-result-container .row .result-name{
+  width: 45%;
+}
+.search-result-container .row .result-code{
+  width: 45%;
+}
+.search-result-container .row .result-goto{
+  width: 10%;
+  text-align: left;
+}

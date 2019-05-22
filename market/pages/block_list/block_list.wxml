@@ -1,0 +1,36 @@
+<!--pages/list/list.wxml-->
+<view class='list-container'>
+  <view class='nav-container tab'>
+  <view class="button-container">{{pageTitle}}</view>
+  <view class='search-container' bindtap='clickSearch'>
+    <icon type="search" size='25'></icon>
+  </view>
+</view>
+
+  <view class="select-content-container">
+    <view class='tab-title-container'>
+      <view class='title-button'>板块名称</view>
+      <view class='title-button'>涨跌幅        
+      </view>
+      <view class='title-button'>领涨股      
+      </view>
+      <view class='title-button' >股票涨跌福       
+      </view>
+    </view>
+    <view class='select-stock-container {{stockItem.blockIncreasePercent>0 ? "up" : "down"}}' wx:for="{{StockMarketArray}}"  
+    wx:key="StockMarketArrayId" wx:for-item="stockItem" data-block-name="{{stockItem.blockName}}" data-block-code="{{stockItem.blockCode}}"
+    bindtap="clickBlock" > 
+      <view class='select-stock-price '>{{stockItem.blockName}}</view>
+      <view class='select-stock-price {{stockItem.blockIncreasePercent>0 ? "up" : "down"}}'>{{stockItem.blockIncreasePercent}}%</view>
+      <view class='stock-name-container'>
+        <view class='stock-name'>{{stockItem.topStockName}}</view>
+        <view class='stock-code'>{{stockItem.topStockCode}}</view>
+      </view>
+      <view class='select-stock-price {{stockItem.topStockIncreasePercent>0 ? "up" : "down"}}'>{{stockItem.topStockIncreasePercent}}%</view>
+    </view> 
+    <view class='load-more-container'>
+      <view class='load-more-button' bindtap='loadMore'>{{loadMore}}</view>   
+    </view>
+  </view>
+ 
+</view>

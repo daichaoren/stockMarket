@@ -1,0 +1,95 @@
+<!--pages/block/block.wxml-->
+<wxs module="filters" src="../../util/filter.wxs"></wxs>
+<view block-container>
+  <view class='title-container'>
+    <view class='stock-title-container'>
+      <view class='triangle-left'></view>
+      <view class='stock-title'>
+        <view class='stock-name'>{{blockName}}</view>
+        <view class='stock-code'>{{blockCode}}</view>
+      </view>
+      <view class='triangle-right'></view>
+    </view>
+    <view class='search-container' bindtap='clickSearch'>
+      <icon type="search" size='25'></icon>
+    </view>
+  </view>
+  <view class="stock-price-top-container">
+    <view class='price-container {{blockMarket.increase>0 ? "up" : "down"}} '>
+      <view class='current-price'>{{blockMarket.currentPrice}}</view>
+      <view class='current-price-increase-container'>
+        <view class='increase'>{{blockMarket.increase}}</view>
+        <view class='price'>{{blockMarket.increasePercent}}%</view>
+      </view>
+    </view>    
+  </view>
+  <view class="stock-price-detail-container">
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>最高</view>
+        <view class='value {{blockMarket.highPrice >= blockMarket.lastPrice? "up" : "down"}}'>{{blockMarket.highPrice}}</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>最低</view>
+        <view class='value {{blockMarket.lowPrice >= blockMarket.lastPrice? "up" : "down"}}'>{{blockMarket.lowPrice}}</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>今开</view>
+        <view class='value {{blockMarket.openPrice >= blockMarket.lastPrice? "up" : "down"}}'>{{blockMarket.openPrice}}</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>换手</view>
+        <view class='value '>{{blockMarket.turnOver}}%</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>量</view>
+        <view class='value {{blockMarket.increase>0 ? "up" : "down"}}'>{{filters.toFix(blockMarket.volumn/10000)}}万</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>额</view>
+        <view class='value {{blockMarket.increase>0 ? "up" : "down"}}'>{{ filters.toFix(blockMarket.amount/100000000)}}亿</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>内盘</view>
+        <view class='value {{blockMarket.increase>0 ? "up" : "down"}}'>{{ filters.toFix(blockMarket.innerVol/10000)}}万</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>外盘</view>
+        <view class='value {{blockMarket.increase>0 ? "up" : "down"}}'>{{ filters.toFix(blockMarket.outVol/10000)}}万</view>
+      </view>
+    </view>
+    <view class='triangle-bottomright-container'>
+      <view class='triangle-bottomright' bindtap='clickDetailMore'></view>
+    </view>
+  </view>
+   <view class="select-content-container">
+    <view class='tab-title-container'>
+      <view class='title-button'>证券/代码</view>
+      <view class='title-button' bindtap='sortByCurrentPrice'>最新价        
+      </view>
+      <view class='title-button' bindtap='sortByPricePercent'>涨跌幅        
+      </view>
+      <view class='title-button' bindtap='sortByPriceIncrease'>涨跌       
+      </view>
+    </view>
+    <view class='select-stock-container {{stockItem.increase>0 ? "up" : "down"}}' wx:for="{{StockMarketArray}}"  
+    wx:key="StockMarketArrayId" wx:for-item="stockItem" data-stock-name="{{stockItem.name}}" data-stock-code="{{stockItem.code}}" bindtap='gotoStockDetail'>      
+      <view class='stock-name-container'>
+        <view class='stock-name'>{{stockItem.name}}</view>
+        <view class='stock-code'>{{stockItem.code}}</view>
+      </view>
+      <view class='select-stock-price {{stockItem.increase>0 ? "up" : "down"}}'>{{stockItem.price}}</view>
+      <view class='select-stock-price {{stockItem.increase>0 ? "up" : "down"}}'>{{stockItem.increasePercent}}%</view>
+      <view class='select-stock-price {{stockItem.increase>0 ? "up" : "down"}}'>{{stockItem.increase}}</view>
+    </view> 
+    <view class='load-more-container'>
+      <view class='load-more-button' bindtap='loadMore'>加载更多></view>   
+    </view>
+  </view>
+</view>

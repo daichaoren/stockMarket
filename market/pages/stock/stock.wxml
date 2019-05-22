@@ -1,0 +1,301 @@
+<!--index.wxml-->
+<wxs module="filters" src="../../util/filter.wxs"></wxs>
+<!--pages/stock/stock.wxml-->
+<view class="stock-container">
+  <view class='title-container'>
+    <view class='stock-title-container'>
+      <view class='triangle-left'></view>
+      <view class='stock-title'>
+        <view class='stock-name'>{{stockName}}</view>
+        <view class='stock-code'>{{stockCode}}</view>
+      </view>
+      <view class='triangle-right'></view>
+    </view>
+    <view class='search-container' bindtap='clickSearch'>
+      <icon type="search" size='25'></icon>
+    </view>
+  </view>
+  <view class="stock-price-top-container">
+    <view class='price-container {{stockMarket.increase >0 ? "up" : "down"}}'>
+      <view class='current-price'>{{stockMarket.currentPrice}}</view>
+      <view class='current-price-increase-container'>
+        <view class='increase'>{{filters.toFix(stockMarket.increase/1)}}</view>
+        <view class='price'>{{filters.toFix(stockMarket.increasePercent/1)}}%</view>
+      </view>
+    </view>
+    <view class='select-button-container' bindtap='addDelStock'>
+      <view class='select-button-line'></view>
+      <view class='select-del-button' wx:if="{{isSelected}}">－减自选</view>
+      <view class='select-add-button' wx:if="{{!isSelected}}">＋加自选</view>
+    </view>
+  </view>
+  <view class="stock-price-detail-container">
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>最高</view>
+        <view class='value {{stockMarket.highPrice > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.highPrice}}</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>最低</view>
+        <view class='value {{stockMarket.lowPrice > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.lowPrice}}</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>今开</view>
+        <view class='value {{stockMarket.openPrice > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.openPrice}}</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>换手</view>
+        <view class='value '>{{stockMarket.turnOver}}%</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>量</view>
+        <view class='value '>{{filters.toFix(stockMarket.volumn/10000)}}万</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>额</view>
+        <view class='value '>{{filters.toFix(stockMarket.amount/100000000)}}亿</view>
+      </view>
+    </view>
+    <view class='detail-block-container'>
+      <view class='detail-block-row'>
+        <view class='title'>内盘</view>
+        <view class='value up'>{{stockMarket.innerVol/10000}}万</view>
+      </view>
+      <view class='detail-block-row'>
+        <view class='title'>外盘</view>
+        <view class='value down'>{{stockMarket.outVol/10000}}万</view>
+      </view>
+    </view>
+    <view class='triangle-bottomright-container'>
+      <view class='triangle-bottomright' bindtap='clickDetailMore'></view>
+    </view>
+  </view>
+  <view class='stock-tab-container'>
+    <view class='tab-button-container' bindtap='clickTabTimeShare'>
+      <view class='name {{tab.timeShareSelected ? "active" : "no"}}'>分时</view>
+      <view class='triangle-down {{tab.timeShareSelected ? "active" : "no"}}'></view>
+    </view>
+    <view class='tab-button-container' bindtap='clickTabDayKline'>
+      <view class='name {{tab.dayKLineSelected ? "active" : "no"}}'>日K</view>
+      <view class='triangle-down {{tab.dayKLineSelected ? "active" : "no"}}'></view>
+    </view>
+    <view class='tab-button-container' bindtap='clickTabWeekKline'>
+      <view class='name {{tab.weekKLineSelected ? "active" : "no"}}'>周K</view>
+      <view class='triangle-down {{tab.weekKLineSelected ? "active" : "no"}}'></view>
+    </view>
+    <view class='tab-button-container' bindtap='clickTabMonthKline'>
+      <view class='name {{tab.monthKLineSelected ? "active" : "no"}}'>月K</view>
+      <view class='triangle-down {{tab.monthKLineSelected ? "active" : "no"}}'></view>
+    </view>
+    <view class='tab-button-container' bindtap='clickTabYearKline'>
+      <view class='name {{tab.yearKLineSelected ? "active" : "no"}}'>年K</view>
+      <view class='triangle-down {{tab.yearKLineSelected ? "active" : "no"}}'></view>
+    </view>
+    <view class='tab-button-container'>
+      <view class='name'>分钟</view>
+      <view class='tab-triangle-bottom'></view>
+    </view>
+  </view>
+  <view class='stock-time-share-container' wx:if="{{tab.timeShareSelected}}">
+    <view class="real-price-container">
+      <view class='time'>13:38</view>
+     <view class='value'>价格:82.37</view>
+      <view class='value'>+9.99%</view>      
+    </view>
+    <view class='time-share-chart-container'>
+      <view class='time-share-top-chart' wx:if="{{tab.timeShareSelected}}">
+        <ec-canvas ec="{{ ecTimeShareLine }}"></ec-canvas>
+      </view>
+       <view class='time-share-bottom-chart' wx:if="{{tab.timeShareSelected}}">
+        <ec-canvas ec="{{ ecTimeShareBar }}"></ec-canvas>
+       </view>      
+    </view>
+    <view class='sell-buy-detail-container'>
+      <view class='column'>
+        <view class='value'>买1</view>
+        <view class='value'>买2</view>
+        <view class='value'>买3</view>
+        <view class='value'>买4</view>
+        <view class='value'>买5</view>
+      </view>
+      <view class='column'>
+        <view class='value {{stockMarket.buyPrice1 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.buyPrice1}}</view>
+        <view class='value {{stockMarket.buyPrice2 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.buyPrice2}}</view>
+        <view class='value {{stockMarket.buyPrice3 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.buyPrice3}}</view>
+        <view class='value {{stockMarket.buyPrice4 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.buyPrice4}}</view>
+        <view class='value {{stockMarket.buyPrice5 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.buyPrice5}}</view>
+      </view>
+      <view class='column'>
+        <view class='value'>{{stockMarket.buyAoumt1}}</view>
+        <view class='value'>{{stockMarket.buyAoumt2}}</view>
+        <view class='value'>{{stockMarket.buyAoumt3}}</view>
+        <view class='value'>{{stockMarket.buyAoumt4}}</view>
+        <view class='value'>{{stockMarket.buyAoumt5}}</view>
+      </view>
+      <view class='column'>
+        <view class='value'>卖1</view>
+        <view class='value'>卖2</view>
+        <view class='value'>卖3</view>
+        <view class='value'>卖4</view>
+        <view class='value'>卖5</view>
+      </view>
+      <view class='column'>
+        <view class='value {{stockMarket.sellPrice1 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.sellPrice1}}</view>
+        <view class='value {{stockMarket.sellPrice2 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.sellPrice2}}</view>
+        <view class='value {{stockMarket.sellPrice3 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.sellPrice3}}</view>
+        <view class='value {{stockMarket.sellPrice4 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.sellPrice4}}</view>
+        <view class='value {{stockMarket.sellPrice5 > stockMarket.lastPrice ? "up" : "down"}}'>{{stockMarket.sellPrice5}}</view>
+      </view>
+      <view class='column'>
+        <view class='value'>{{stockMarket.sellAoumt1}}</view>
+        <view class='value'>{{stockMarket.sellAoumt2}}</view>
+        <view class='value'>{{stockMarket.sellAoumt3}}</view>
+        <view class='value'>{{stockMarket.sellAoumt4}}</view>
+        <view class='value'>{{stockMarket.sellAoumt5}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='stock-k-line-container' wx:if="{{tab.kLineSelected}}">    
+    <view class='k-line-chart-container'>
+      <ec-canvas ec="{{ ecKLineCandle }}"></ec-canvas>    
+    </view>
+    <view class="stock-k-line-news-container">
+      <view class='nav-container tab'>
+        <view class="button-container">
+          <view class="nav-button {{ kLineTab.news_selected ? 'active': 'no' }}" bindtap="clickKLineNewsTab"> 新 闻 </view>
+          <view class="nav-button {{ kLineTab.public_selected ? 'active': 'no' }}" bindtap="clickKLinePublicTab"> 公 告 </view>
+        </view>
+      </view>
+      <view class="news-container" wx:if="{{ kLineTab.news_selected }}"></view>
+      <view class="public-container" wx:if="{{ kLineTab.public_selected }}">
+        <view class='public-row'>
+          <view class='public-title'>中国石油内幕信息知情人登记管理办法</view>
+          <view class='public-date'>2019-05-12</view>
+        </view>
+        <view class='public-row'>
+          <view class='public-title'>中国石油董事会2019年第三次会议决议及聘任总裁，副总裁及总工程师辞任的公告</view>
+          <view class='public-date'>2019-04-10</view>
+        </view>
+        <view class='public-row'>
+          <view class='public-title'>中国石油董事会2019年第三次会议决议及聘任总裁，副总裁及总工程师辞任的公告</view>
+          <view class='public-date'>2019-03-10</view>
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+
+<cover-view class='mask_container {{modal.detailMoreModalHidden ? "hidden" : "show"}}'>
+   <cover-view class='modal-detail-block-container'>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>最高</cover-view>
+        <cover-view class='value up'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>今开</cover-view>
+        <cover-view class='value down'>8.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>最低</cover-view>
+        <cover-view class='value down'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>昨收</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>量</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>内盘</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>额</cover-view>
+        <cover-view class='value up'>56.78亿</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>外盘</cover-view>
+        <cover-view class='value'>5.12亿</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>涨停</cover-view>
+        <cover-view class='value up'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>换手</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>跌停</cover-view>
+        <cover-view class='value down'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>振幅</cover-view>
+        <cover-view class='value'>8.46%</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>量比</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>委比</cover-view>
+        <cover-view class='value'>8.46%</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>总市值</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>市盈率</cover-view>
+        <cover-view class='value'>8.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>流通市值</cover-view>
+        <cover-view class='value'>33.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>市净率</cover-view>
+        <cover-view class='value'>13.46</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class="row">
+      <cover-view class='half-row'>
+        <cover-view class='title'>流通股</cover-view>
+        <cover-view class='value'>33.46</cover-view>
+      </cover-view>
+      <cover-view class='half-row'>
+        <cover-view class='title'>总股本</cover-view>
+        <cover-view class='value'>1.46亿</cover-view>
+      </cover-view>
+    </cover-view> 
+    <cover-view class='modal-close-button-container'>
+      <cover-view class='close-button' bindtap='clickDetailMoreClose'>X</cover-view>
+    </cover-view>   
+
+   </cover-view>
+  
+</cover-view>
+

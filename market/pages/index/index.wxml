@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="index-container">
+  <view class='nav-container tab'>
+    <view class="button-container">
+      <view class="nav-button {{ tab_seleted.market_selected ? 'active': 'no' }}" bindtap="market_tab_tap"> 行 情 </view>
+      <view class="nav-button {{ tab_seleted.select_selected ? 'active': 'no' }}" bindtap="select_tab_tap"> 自 选 </view>
+    </view>
+    <view class='search-container' bindtap='clickSearch'>
+      <icon type="search" size='25'></icon>
+    </view>
+  </view>
+  <view class="market-content-container {{tab_seleted.market_selected?'show':'hidden'}}">
+    <view class='block-container main'>
+      <view class='main-block 'wx:for="{{indexMarketArray}}"  
+      wx:key="indexMarketArrayId" 
+      bindtap='gotoStockDetail' data-stock-name="{{item.name}}" >
+        <view class='stock-title'>{{item.name}}</view>
+        <view class='stock-value {{item.increase>0 ? "increase" : "fall"}}'>{{item.price}}</view>
+        <view class='stock-increase-container'>
+          <view class='stock-increase-value {{item.increase>0 ? "increase" : "fall"}}'>
+            {{item.increase}}
+          </view>
+          <view class='stock-increase-percent {{item.increase>0 ? "increase" : "fall"}}'>
+          {{item.increasePercent}}%
+          </view>
+        </view>
+      </view>
+      
+    </view>
+    <view class='block-container' wx:for="{{blockClass}}" wx:for-item="itemClass" wx:key="blockClassCircleId">
+      <view class='block-title-container'>
+        <view class='block-title-name'>{{itemClass.name}}</view>
+        <view class='block-title-more' bindtap='loadBlockMore' data-block-name="{{itemClass.name}}">更多></view>
+        <view class='common-block-container'>
+          <view class='common-block' wx:for="{{itemClass.blockList}}" wx:for-item="itemBlock" 
+          wx:key="{{itemClass.name}}" data-block-name="{{itemBlock.blockName}}" 
+          data-block-code="{{itemBlock.blockCode}}" bindtap='clickSingleBlock'>
+            <view class='block-title'>{{itemBlock.blockName}}</view>
+            <view class='block-value {{itemBlock.blockIncreasePercent>0 ? "increase" : "fall"}}'>{{itemBlock.blockIncreasePercent}}%</view>
+            <view class='top-stock-container'>
+              <view class='stock-title'>{{itemBlock.topStockName}}</view>
+              <view class='stock-value {{itemBlock.topStockIncreasePercent>0 ? "increase" : "fall"}}'>
+                {{itemBlock.topStockIncreasePercent}}%
+              </view>
+            </view>
+          </view>          
+        </view>
+      </view>
+    </view>    
+    <view class='hot-container'>
+      <view class='tab-container'>
+        <view class='hot-tab-button {{hot_tab_selected.increase ? "active" : ""}}' bindtap='clickHotIncreaseTop'>涨幅榜
+          <view class='border-bottom {{hot_tab_selected.increase ? "active" : ""}}'></view>
+        </view>
+        <view class='hot-tab-button {{hot_tab_selected.fall ? "active" : ""}}' bindtap='clickHotFallTop'>跌幅榜
+          <view class='border-bottom {{hot_tab_selected.fall ? "active" : ""}}'></view>
+        </view>
+        <view class='hot-tab-button {{hot_tab_selected.turnOver ? "active" : ""}}' bindtap='clickHotTurnOverTop'>换手率榜
+          <view class='border-bottom {{hot_tab_selected.turnOver ? "active" : ""}}'></view>
+        </view>        
+      </view>
+      <view class='hot-stock-content-container'>
+        <view class='hot-stock-container' wx:for="{{hotStockArray}}" wx:for-item="itemStock" 
+        wx:key="hotStockArrayId" data-stock-name="{{itemStock.name}}" data-stock-code="{{itemStock.code}}" bindtap='gotoStockDetail'>
+          <view class='stock-container'>
+            <view class='stock-name'>{{itemStock.name}}</view>
+            <view class='stock-code'>{{itemStock.code}}</view>
+          </view>
+          <view class='stock-increase-container {{itemStock.increase>0 ? "increase" : "fall"}}'>{{itemStock.price}}</view>
+          <view class='stock-increase-percent-container {{itemStock.increase>0 ? "increase" : "fall"}}'>{{itemStock.result}}%</view>
+        </view>        
+        <view class='load-more-container'>
+          <view class='load-more-button' bindtap='loadMoreHotTop'>查看更多</view>   
+        </view>     
+      
+      </view>
+    </view>
+  </view>
+  <view class="select-content-container {{tab_seleted.select_selected?'show':'hidden'}}">
+    <view class='tab-title-container'>
+      <view class='title-button'>证券/代码</view>
+      <view class='title-button' bindtap='sortByCurrentPrice'>最新价
+        <view class='up {{ select_sort.current_price_up ? "active" : "no"}}'>↑</view>
+        <view class='down {{ select_sort.current_price_down ? "active" : "no"}}'>↓</view>
+      </view>
+      <view class='title-button' bindtap='sortByPricePercent'>涨跌幅
+        <view class='up {{ select_sort.price_percent_up ? "active" : "no"}}'>↑</view>
+        <view class='down {{ select_sort.price_percent_down ? "active" : "no"}}'>↓</view>
+      </view>
+      <view class='title-button' bindtap='sortByPriceIncrease'>涨跌
+        <view class='up {{ select_sort.price_increase_up ? "active" : "no"}}'>↑</view>
+        <view class='down {{ select_sort.price_increase_down ? "active" : "no"}}'>↓</view>
+      </view>
+    </view>
+    <view class='select-stock-container {{stock.increase>0 ? "up" : "down"}}' 
+    wx:for="{{selectedStocks}}" wx:for-item="stock" wx:key="selectStockId" bindtap='gotoStockDetail' 
+    data-stock-name="{{stock.name}}" data-stock-code="{{stock.code}}">      
+      <view class='stock-name-container'>
+        <view class='stock-name'>{{stock.name}}</view>
+        <view class='stock-code'>{{stock.code}}</view>
+      </view>
+      <view class='select-stock-price {{stock.increase>0 ? "up" : "down"}}'>{{stock.price}}</view>
+      <view class='select-stock-price {{stock.increase>0 ? "up" : "down"}}'>{{stock.increasePercent}}%</view>
+      <view class='select-stock-price {{stock.increase>0 ? "up" : "down"}}'>{{stock.increase}}</view>
+    </view>    
+  </view>
+</view>

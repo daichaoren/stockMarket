@@ -1,0 +1,82 @@
+{
+	"description": "行情一点通",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.0",
+	"appid": "wx0f01bf5a4dcf0581",
+	"projectname": "MarketFree",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "详情页",
+					"pathName": "pages/stock/stock",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "列表页",
+					"pathName": "pages/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "板块列表页",
+					"pathName": "pages/block_list/block_list",
+					"query": "pageTitle=地域板块&sortType=C._BKDY",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "板块详情页",
+					"pathName": "pages/block/block",
+					"query": "blockCode=BK0433&blockName=农林牧渔",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索页",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

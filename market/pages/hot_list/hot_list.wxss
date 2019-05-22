@@ -1,0 +1,136 @@
+.list-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container{
+  background-color: white;  
+  height: 70rpx;  
+  border-bottom: solid 1rpx RGB(219,219,217); 
+}
+
+.button-container{ 
+  float:left;
+  margin-left: 250rpx;  
+  width: 300rpx;
+  height: 60rpx;
+  border: solid 1rpx RGB(219,219,217); 
+  border-radius:5px;   
+  font-size: 30rpx;  
+  text-align: center; 
+  background-color: white; 
+  color: black;
+  line-height: 60rpx;
+}
+
+.search-container{
+  color: black;
+  float: right;
+  margin-top: 10rpx; 
+  margin-right: 30rpx;
+}
+
+
+.select-content-container{
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.select-content-container .tab-title-container{
+  background-color: white;  
+  height: 80rpx;
+  width: 100%; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #EEEEEE; 
+}
+
+.tab-title-container .title-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25%;
+  font-size: 30rpx;  
+  color: RGB(132, 132,132);
+}
+
+.title-button .active{
+  color:RGB(254,74,78); 
+}
+
+.title-button .up{
+  /*margin-left: -5rpx;*/
+}
+.title-button .down{
+  /*margin-left: -10rpx;*/
+}
+
+.select-content-container .select-stock-container{
+  width: 100%;
+  height: 90rpx;  
+  background-color: white;   
+  border-bottom: 1rpx solid #EEEEEE; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-stock-container.up{
+  background: linear-gradient(to right, white , RGB(255,221,222));
+}
+.select-stock-container.down{
+  background: linear-gradient(to right, white , RGB(213,244,210));
+}
+
+.select-stock-container .stock-name-container{
+  width: 25%;  
+  display: flex;
+  flex-direction: column;  
+  text-align: center;
+}
+.stock-name-container .stock-name{  
+  font-size: 35rpx;  
+  color:black;
+}
+
+.stock-name-container .stock-code{
+  font-size: 25rpx;  
+  color: RGB(196, 196, 196);
+}
+
+.select-stock-container .select-stock-price{
+  width: 25%;
+  font-size: 40rpx;  
+  text-align: center;
+}
+
+.select-stock-price.up{
+  color: RGB(237, 85, 83);
+}
+
+.select-stock-price.down{
+  color: RGB(80, 158, 95);
+}
+
+.load-more-container{
+  width: 100%;
+  height: 100rpx;  
+  background-color: white;   
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.load-more-container .load-more-button{
+  width: 100%;  
+  text-align: center;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}/* pages/list/list.wxss */

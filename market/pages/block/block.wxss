@@ -1,0 +1,274 @@
+.block-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container{
+  background-color: white;  
+  height: 90rpx;  
+  width: 100%;
+  border-bottom: solid 1rpx RGB(219,219,217); 
+}
+
+.stock-title-container{
+  float: left;
+  margin-left: 200rpx; 
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 15rpx solid transparent;
+  border-right: 30rpx solid RGB(178, 171, 181);
+  border-bottom: 15rpx solid transparent;
+}
+
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 15rpx solid transparent;
+    border-left: 30rpx solid RGB(178, 171, 181);
+    border-bottom: 15rpx solid transparent;
+}
+
+.stock-title-container .stock-title{
+  height: 100%;
+  width: 300rpx;
+  text-align: center;
+}
+
+.stock-title .stock-name{
+  font-size: 40rpx;  
+  text-align: center;
+}
+
+.stock-title .stock-code{
+  font-size: 25rpx;
+  
+}
+
+.search-container{
+  color: black;
+  float: right;
+  margin-top: 20rpx; 
+  margin-right: 30rpx;
+}
+
+.stock-price-top-container{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-price-top-container .price-container{  
+  width: 60%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  color :black; 
+}
+
+.price-container.up{
+  color: RGB(216, 86, 94);
+}
+
+.price-container.down{
+   color: RGB(98,196,119)
+}
+
+.price-container .current-price{
+   font-size: 90rpx;
+   font-weight: bold;
+}
+
+.price-container .current-price-increase-container{
+  font-size: 30rpx;
+}
+
+.current-price-increase-container .increase{
+  
+}
+.current-price-increase-container .price{
+
+}
+
+.select-button-container{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-button-line{
+  height: 70rpx;
+  width: 4rpx;
+  background-color: #EEEEEE; 
+}
+.select-add-button{
+  margin-left: 20rpx;
+  color: RGB(216, 86, 94);
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: solid 2rpx  RGB(216, 86, 94); 
+  border-radius:20px;   
+  font-size: 30rpx;     
+  text-align: center;
+}
+
+.stock-price-detail-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 120rpx;
+  background-color: RGB(250, 247, 248); 
+}
+
+.stock-price-detail-container .detail-block-container{
+  width: 24%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-block-container .detail-block-row{
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-block-container .detail-block-row .title{
+  font-size: 25rpx;
+  text-align: center;
+  color: RGB(141, 139, 137);
+}
+.detail-block-container .detail-block-row .value{
+  color: black;
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+
+.detail-block-container .detail-block-row .value.up{
+  color: RGB(255, 73, 80);
+}
+
+.detail-block-container .detail-block-row .value.down{
+  color: RGB(55, 175, 81);
+}
+
+.triangle-bottomright {  
+  margin-top: 80rpx;
+  width: 0;
+  height: 0;
+  border-bottom: 30rpx solid RGB(209, 193, 194);
+  border-left: 30rpx solid transparent;
+}
+
+.select-content-container{
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.select-content-container .tab-title-container{
+  background-color: white;  
+  height: 80rpx;
+  width: 100%; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #EEEEEE; 
+}
+
+.tab-title-container .title-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25%;
+  font-size: 30rpx;  
+  color: RGB(132, 132,132);
+}
+
+.title-button .active{
+  color:RGB(254,74,78); 
+}
+
+.title-button .up{
+  /*margin-left: -5rpx;*/
+}
+.title-button .down{
+  /*margin-left: -10rpx;*/
+}
+
+.select-content-container .select-stock-container{
+  width: 100%;
+  height: 90rpx;  
+  background-color: white;   
+  border-bottom: 1rpx solid #EEEEEE; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.select-stock-container.up{
+  background: linear-gradient(to right, white , RGB(255,221,222));
+}
+.select-stock-container.down{
+  background: linear-gradient(to right, white , RGB(213,244,210));
+}
+
+.select-stock-container .stock-name-container{
+  width: 25%;  
+  display: flex;
+  flex-direction: column;  
+  text-align: center;
+}
+.stock-name-container .stock-name{  
+  font-size: 35rpx;  
+  color:black;
+}
+
+.stock-name-container .stock-code{
+  font-size: 25rpx;  
+  color: RGB(196, 196, 196);
+}
+
+.select-stock-container .select-stock-price{
+  width: 25%;
+  font-size: 40rpx;  
+  text-align: center;
+}
+
+.select-stock-price.up{
+  color: RGB(237, 85, 83);
+}
+
+.select-stock-price.down{
+  color: RGB(80, 158, 95);
+}
+
+.load-more-container{
+  width: 100%;
+  height: 100rpx;  
+  background-color: white;   
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.load-more-container .load-more-button{
+  width: 100%;  
+  text-align: center;
+}
